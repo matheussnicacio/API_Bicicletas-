@@ -12,8 +12,8 @@ http://localhost:8080/api/auth/register
 POST http://localhost:8080/api/auth/login
 
 {
-  "email": "mateus@email.com",
-  "senha": "123456"
+  "username": "mateus",
+  "password": "123456"
 }
 
 //VAI SER GERADO UM CODIGO É IMPORTANTE UTILIZAR PARA FUNCIONAR É O TOKEN DE AUTORIZAÇÃO
