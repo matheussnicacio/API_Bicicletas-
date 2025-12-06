@@ -66,18 +66,26 @@ async function remove(req, res) {
   }
 }
 
-// Listar escolhas de um interessado
-async function listEscolhas(req, res) {
+const listEscolhas = async (req, res) => {
   try {
+    const { id } = req.params;
+    
     const escolhas = await Escolha.findAll({
-      where: { interessado_id: req.params.id },
-      include: [{ model: Bicicleta }]
+      where: { interessado_id: id },
+      include: [
+        { 
+          model: Bicicleta, 
+          as: 'bicicletas', // Plural, como definido no index.js
+          through: { attributes: [] } // Opcional: oculta os dados da tabela intermediária
+        }
+      ]
     });
-    res.json(escolhas);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Erro ao listar escolhas do interessado' });
+    
+    return res.status(200).json(escolhas);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: error.message });
   }
-}
+};
 
 module.exports = { list, getOne, create, update, remove, listEscolhas };
