@@ -27,15 +27,13 @@ Authorization: Bearer <TOKEN>
 POST http://localhost:8080/api/bicicletas
 
 {
-    "marca": "exemplo",
-    "modelo": "exemplo",
-    "ano": 2025,
-    "numero_serie": "exe2025",
-    "cor": "Preta",
-    "quadro": 17,
-    "altura_minima": "1.65",
-    "disponivel": true
-
+  "marca": "CALOI",
+  "modelo": "Mountain Bike",
+  "ano": 2023,
+  "numero_serie": "ABC12345",
+  "cor": "Azul",
+  "quadro": 15,
+  "altura_minima": 1.50
   }
 
 #4. Listar bicicletas
