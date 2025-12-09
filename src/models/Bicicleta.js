@@ -8,11 +8,11 @@ const Bicicleta = sequelize.define('Bicicleta', {
     autoIncrement: true
   },
   marca: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(255),
     allowNull: false
   },
   modelo: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(255),
     allowNull: false
   },
   ano: {
@@ -20,26 +20,27 @@ const Bicicleta = sequelize.define('Bicicleta', {
     allowNull: false
   },
   numero_serie: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(255),
     unique: true,
     allowNull: false
   },
   cor: {
-    type: DataTypes.STRING
-  },
-  quadro: {
-    type: DataTypes.INTEGER, // 15, 17 ou 18
-    allowNull: false,
-    validate: { min: 15, max: 18 }
+    type: DataTypes.STRING(255),
+    allowNull: true
   },
   altura_minima: {
-    type: DataTypes.DECIMAL(3,2),
-    allowNull: false,
-    validate: { min: 1.50, max: 2.50 }
+    type: DataTypes.DECIMAL(3, 2),
+    allowNull: false
+  },
+  quadro: {
+    type: DataTypes.INTEGER,
+    allowNull: false
   }
 }, {
   tableName: 'bicicletas',
-  timestamps: true
+  timestamps: true,
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 });
 
 module.exports = Bicicleta;
